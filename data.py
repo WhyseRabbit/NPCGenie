@@ -74,12 +74,7 @@ To be built from the ground up, this project needs better planning
 #             "Mendev", "Molthune", "Nidal", "Nirmathas", "Numeria", "Qadira", "Razmiran",
 #             "Realm of the Mammoth Lords","The River Kingdomes", "Taldor", "Ustalav",
 #             "Varisia", "Worldwound"
-#             ],
-#         "age" : randint(7, 95),
-#         "height" : randint(60, 80),
-#         "weight" : randint(120, 160),
-#         "size" : "Medium",
-#         "speed" : 25
+#             ]
 #     }
 # }
 
@@ -94,13 +89,113 @@ To be built from the ground up, this project needs better planning
 All stats start at 10 and get increased by the choices generated.
 """
 
+statScores = {
+    "Strength" : 10,
+    "Dexterity" : 10,
+    "Constitution" : 10,
+    "Intelligence" : 10,
+    "Wisdom" : 10,
+    "Charisma" : 10
+}
+
 ancestry = {
     "Dwarf" : {
-        "heritage" : [
-            "Ancient-Blooded", "Death Warden",
-            "Forge", "Rock", "Strong-Blooded"
-            ],
+        "heritage" : {
+            "Ancient-Blooded" : "Call on Ancient Blood",
+            "Death Warden" : "Necromancy Ward",
+            "Forge" : "Fire Resistance",
+            "Rock" : "Firmly Grounded",
+            "Strong-Blooded" : "Poison Resistance"
+        },
         "HP" : 10,
+        "size" : "Medium",
         "speed" : 20,
+        statScores["Constitution"] : 12,
+        statScores["Wisdom"] : 12,
+        # random statScore increase here,
+        statScores["Charisma"] : 8,
+        "languages" : ["Common", "Dwarven"],
+        "traits" : ["Dwarf", "Humanoid"],
+        "ancestry feature" : "Darkvision"
+    },
+    
+    "Elf" : {
+        "heritage" : {
+            "Arctic" : "Cold Resistance",
+            "Cavern" : "Darkvision",
+            "Seer" : "Magic Vision",
+            "Whisper" : "Keen Hearing",
+            "Woodland" : "Quick Climb"
+        },
+        "HP" : 6,
+        "size" : "Medium",
+        "speed" : 30,
+        statScores["Dexterity"] : 12,
+        statScores["Intelligence"] : 12,
+        # random increase,
+        statScores["Constitution"] : 8,
+        "languages" : ["Common", "Elven"],
+        "traits" : ["Elf", "Humanoid"],
+        "ancestry feature" : "Low-Light Vision"
+    },
+    
+    "Gnome" : {
+        "heritage" : {
+            "Chameleon" : "Blend In",
+            "Fey-Touched" : "Fey Magic",
+            "Sensate" : "Sharp Senses",
+            "Umbral" : "Darkvision",
+            "Wellspring" : "Wellspring Magic"
+        },
+        "HP" : 8,
+        "size" : "Small",
+        "speed" : 25,
+        statScores["Constitution"] : 12,
+        statScores["Charisma"] : 12,
+        # random increase,
+        statScores["Strength"] : 8,
+        "languages" : ["Common", "Gnomish", "Sylvan"],
+        "traits" : ["Gnome", "Humanoid"],
+        "ancestry feature" : "Low-Light Vision"
+    },
+    
+    "Goblin" : {
+        "heritage" : {
+            "Charhide" : "Fire Resistance",
+            "Irongut" : "Affliction Resistance",
+            "Razortooth" : "Bite Attack",
+            "Snow" : "Cold Resistance",
+            "Unbreakable" : "Hearty"
+        },
+        "HP" : 6,
+        "size" : "Small",
+        "speed" : 25,
+        statScores["Dexterity"] : 12,
+        statScores["Charisma"] : 12,
+        # random increase,
+        statScores["Wisdom"] : 8,
+        "languages" : ["Common", "Goblin"],
+        "traits" : ["Goblin", "Humanoid"],
+        "ancestry feature" : "Darkvision"
+    },
+    
+    "Halfling" : {
+        "heritage" : {
+            "Gutsy" : "Brave",
+            "Hillock" : "Quick Healing",
+            "Nomadic" : "Linguistics",
+            "Twilight" : "Low-Light Vision",
+            "Wildwood" : "Nimble Movement"
+        },
+        "HP" : 6,
+        "size" : "Small",
+        "speed" : 25,
+        statScores["Dexterity"] : 12,
+        statScores["Wisdom"] : 12,
+        # random increase,
+        statScores["Strength"] : 8,
+        "languages" : ["Common", "Halfling"],
+        "traits" : ["Halfling", "Humanoid"],
+        "ancestry feature" : "Keen Eyes"
     }
 }

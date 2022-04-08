@@ -72,30 +72,24 @@ To be built from the ground up, this project needs better planning
 #             "Absalom", "Andoran", "Brevoy", "Cheliax", "Druma", "Galt", "Hermea",
 #             "Hold of Belkzen", "Irrisen", "Isger", "Lastwall", "Lands of the Linnorm Kings",
 #             "Mendev", "Molthune", "Nidal", "Nirmathas", "Numeria", "Qadira", "Razmiran",
-#             "Realm of the Mammoth Lords","The River Kingdomes", "Taldor", "Ustalav",
+#             "Realm of the Mammoth Lords","The River Kingdoms", "Taldor", "Ustalav",
 #             "Varisia", "Worldwound"
 #             ]
 #     }
 # }
 
 
-# classes = {
-#     "Alchemist" : {
-#         "stats" : 
-#     }
-# }
-
 """
 All stats start at 10 and get increased by the choices generated.
 """
 
 statScores = {
-    "Strength" : 10,
-    "Dexterity" : 10,
-    "Constitution" : 10,
-    "Intelligence" : 10,
-    "Wisdom" : 10,
-    "Charisma" : 10
+    "Strength" : [10, 0],
+    "Dexterity" : [10, 0],
+    "Constitution" : [10, 0],
+    "Intelligence" : [10, 0],
+    "Wisdom" : [10, 0],
+    "Charisma" : [10, 0]
 }
 
 ancestry = {
@@ -110,10 +104,10 @@ ancestry = {
         "HP" : 10,
         "size" : "Medium",
         "speed" : 20,
-        statScores["Constitution"] : 12,
-        statScores["Wisdom"] : 12,
+        statScores["Constitution"] : [12, 1],
+        statScores["Wisdom"] : [12, 1],
         # random statScore increase here,
-        statScores["Charisma"] : 8,
+        statScores["Charisma"] : [8, -1],
         "languages" : ["Common", "Dwarven"],
         "traits" : ["Dwarf", "Humanoid"],
         "ancestry feature" : "Darkvision"
@@ -130,10 +124,10 @@ ancestry = {
         "HP" : 6,
         "size" : "Medium",
         "speed" : 30,
-        statScores["Dexterity"] : 12,
-        statScores["Intelligence"] : 12,
+        statScores["Dexterity"] : [12, 1],
+        statScores["Intelligence"] : [12, 1],
         # random increase,
-        statScores["Constitution"] : 8,
+        statScores["Constitution"] : [8, -1],
         "languages" : ["Common", "Elven"],
         "traits" : ["Elf", "Humanoid"],
         "ancestry feature" : "Low-Light Vision"
@@ -150,10 +144,10 @@ ancestry = {
         "HP" : 8,
         "size" : "Small",
         "speed" : 25,
-        statScores["Constitution"] : 12,
-        statScores["Charisma"] : 12,
+        statScores["Constitution"] : [12, 1],
+        statScores["Charisma"] : [12, 1],
         # random increase,
-        statScores["Strength"] : 8,
+        statScores["Strength"] : [8, -1],
         "languages" : ["Common", "Gnomish", "Sylvan"],
         "traits" : ["Gnome", "Humanoid"],
         "ancestry feature" : "Low-Light Vision"
@@ -170,10 +164,10 @@ ancestry = {
         "HP" : 6,
         "size" : "Small",
         "speed" : 25,
-        statScores["Dexterity"] : 12,
-        statScores["Charisma"] : 12,
+        statScores["Dexterity"] : [12, 1],
+        statScores["Charisma"] : [12, 1],
         # random increase,
-        statScores["Wisdom"] : 8,
+        statScores["Wisdom"] : [8, -1],
         "languages" : ["Common", "Goblin"],
         "traits" : ["Goblin", "Humanoid"],
         "ancestry feature" : "Darkvision"
@@ -190,12 +184,63 @@ ancestry = {
         "HP" : 6,
         "size" : "Small",
         "speed" : 25,
-        statScores["Dexterity"] : 12,
-        statScores["Wisdom"] : 12,
+        statScores["Dexterity"] : [12, 1],
+        statScores["Wisdom"] : [12, 1],
         # random increase,
-        statScores["Strength"] : 8,
+        statScores["Strength"] : [8, -1],
         "languages" : ["Common", "Halfling"],
         "traits" : ["Halfling", "Humanoid"],
         "ancestry feature" : "Keen Eyes"
+    },
+
+    "Human" : {
+        "heritage" : {
+            "Half-Elf" : "Low-Light Vision",
+            "Half-Orc" : "Low-Light Vision",
+            "Skilled" : "Extra Skill",
+            "Versatile" : "General Feat"
+        },
+        "HP" : 8,
+        "size" : "Medium",
+        "speed" : 25,
+        # random statScore increase,
+        # random statScore increase,
+        "languages" : "Common",
+        "traits" : ["Human", "Humanoid"],
+        "region" : [
+            "Absalom", "Andoran", "Brevoy", "Cheliax",
+            "Druma", "Galt", "Hermea", "Hold of Belkzen",
+            "Irrisen", "Isger", "Lastwall",
+            "Lands of the Linnorm Kings", "Mendev",
+            "Molthune", "Nidal", "Nirmathas", "Numeria",
+            "Qadira", "Razmiran", "Realm of the Mammoth Lords",
+            "The River Kingdoms", "Taldor", "Ustalav", "Varisia",
+            "Worldwound"
+        ]
+    }
+}
+
+
+classes = {
+    "Alchemist" : {
+        "skills" : {
+            "Perception" : "low",
+            "Crafting" : "high"
+        },
+        "stats" : {
+            statScores["Intelligence"] : [18, 4]
+            # either Strength or Dextrity will increase to [16, 3]
+        },
+        "HP" : 8,
+        "attack" : ["Bombs", 3],
+        "feats" : {
+            1 : "Quick Bomber",
+            6 : "Debilitating Bomb",
+            8 : "Sticky Bomb",
+            10 : ["Expanded Splash", "Greater Debilitating Bomb"],
+            14 : "True Debilitating Bomb",
+            18 : "Miracle Worker"
+        },
+        "equipment" : ["Bombs x5", "15 sp"]
     }
 }

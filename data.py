@@ -241,6 +241,81 @@ classes = {
             14 : "True Debilitating Bomb",
             18 : "Miracle Worker"
         },
-        "equipment" : ["Bombs x5", "15 sp"]
+        "equipment" : ["Bombs x5", "1-5 gp"]
+    },
+
+    "Barbarian" : {
+        "skills" : {
+            "Athletics" : "high"
+        },
+        "stats" : {
+            statScores["Strength"] : [18, 4],
+            statScores["Constitution"] : [16, 3]
+        },
+        "AC" : "high",
+        "Fortitude" : "high",
+        "HP" : 12,
+        "attack" : ["Weapon", 7],
+        "damage" : "extreme",
+        "instincts" : {
+            "Animal" : "Bestial Rage",
+            "Dragon" : "Draconic Rage",
+            "Fury" : "Increased Rage",
+            "Giant" : "Titan Mauler",
+            "Spirit" : "Spirit Rage",
+            "Superstition" : "Superstitious Resilience"
+        },
+        "feats" : {
+            1 : "Raging Intimidation",
+            2 : ["No Escape", "Shake it Off"],
+            4 : ["Fast Movement", "Swipe"],
+            6 : ["Attack of Opportunity", "Cleave"],
+            8 : "Sudden Leap",
+            10 : ["Come and Get Me", "Knockback", "Terrifying Howl"],
+            14 : ["Awesome Blow", "Whirlwind Strike"],
+            18 : "Vicious Evisceration"
+        },
+        "equipment" : ["Weapon", "5 sp"]
+    },
+
+    "Bard" : {
+        "skills" : {
+            "Deception" : "high",
+            "Performance" : "high",
+            "Occultism" : "moderate"
+        },
+        "stats" : {
+            statScores["Charisma"] : [18, 4]
+        },
+        "Fortitude" : "low",
+        "Will" : ["moderate", "high"],
+        "HP" : 8,
+        "spell DC" : ["high", "extreme"],
+        "muses" : {
+            "Enigma" : ["Bardic Lore", "True Strike"],
+            "Maestro" : ["Lingering Composition", "Soothe"],
+            "Polymath" : ["Versatile Performance", "Unseen Servant"],
+            "Warrior" : ["Martial Performance", "Fear"]
+        },
+        "feats" : {
+            4 : "Melodious Spell",
+            6 : ["Dirge of Doom", "Steady Spellcasting"],
+            10 : "Quickened Casting",
+            14 : ["Allegro", "Soothing Ballad"],
+            16 : "Effortless Concentration",
+            20 : "Fatal Aria"
+        },
+        "spells": {
+            "more" : ["to", "come", "later"],
+            "this" : "is a placeholder"
+        },
+        "equipment" : ["Instrument", "Weapon", "2-5 gp"]
+    },
+
+    "Champion" : {
+        "skills" : {
+            "Perception" : "low",
+            "Religion" : "moderate"
+        }
     }
 }
